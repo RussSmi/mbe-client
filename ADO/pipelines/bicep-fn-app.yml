@@ -10,8 +10,7 @@ parameters:
 
 variables:
 - template: ./global.yml
-- name: 'location'
-  value: 'uksouth'
+c
 - name: templateFile
   value: '$(Build.SourcesDirectory)/bicep/main.bicep'
 - name: csmParametersFile
