@@ -1,0 +1,39 @@
+trigger:
+- main
+
+name: Deploy Bicep files
+
+parameters:
+- name: azureServiceConnection
+  type: string
+  default: '$(connection)'
+
+variables:
+- template: ./global.yml
+- name: 'location'
+  value: 'uksouth'
+- name: templateFile
+  value: '$(Build.SourcesDirectory)/bicep/main.bicep'
+- name: csmParametersFile
+  value: '$(Build.SourcesDirectory)/bicep/main.dev.bicepparam'
+#- group: 'ais-connection-vars-dev'
+  
+
+pool:
+  vmImage: $(vmImageName)
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3.243.1
+  inputs:
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: '${{ parameters.azureServiceConnection }}'
+    SubscriptionName: '$(subscription-name)'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '$(fnappsResourceGroupName)' 
+    location: '$(location)'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(templateFile)'
+    csmParametersFile: '$(csmParametersFile)'
+    #overrideParameters: '-storageAccountType Standard_LRS'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'

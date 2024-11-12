@@ -1,0 +1,10 @@
+###
+post http://localhost:7071/api/client_function
+Content-Type: application/json
+
+{
+  "devices": "",
+  "firstName": "Bruce",
+  "lastName": "Wayne",
+  "phone": "321-456-7890"
+}

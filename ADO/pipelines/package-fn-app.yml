@@ -1,0 +1,24 @@
+name: package-fn-app
+variables:
+  - template: ./global.yml
+trigger:
+  branches:
+    include: 
+      - main
+  paths:
+    exclude:
+      - README.md
+      - ../../vscode/*
+      - ../../bicep/*
+      - ../../tests.http
+steps:
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
+      replaceExistingArchive: true
+      
+  - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
+    artifact: '$(artifactName)'

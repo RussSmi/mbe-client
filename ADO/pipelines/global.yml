@@ -1,0 +1,8 @@
+variables:
+  connection: 'rusmith-sandbox'
+  artifactName: 'FnApp'
+  vmImageName: 'ubuntu-latest'
+  logicAppBuildPipelineLabel: package-fn-app
+  logicAppProjectDirectoryName: fnAppSrc
+  pathToFnAppProjectDirectory: '$(System.DefaultWorkingDirectory)/fnapps'
+  fnappsResourceGroupName: 'rg-mbeclients-uks'
