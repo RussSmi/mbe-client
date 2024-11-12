@@ -28,7 +28,7 @@ steps:
   - task: AzureFunctionApp@1 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
-      appType: functionAppLinux # default is functionApp
+      appType: functionApp # default is functionApp
       appName: 'fnapp-mbefnclient-Dev-Client-dev'
       package: $(System.ArtifactsDirectory)/**/*.zip
       #Uncomment the next lines to deploy to a deployment slot
@@ -39,7 +39,7 @@ steps:
   - task: AzureFunctionApp@1 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
-      appType: functionAppLinux # default is functionApp
+      appType: functionApp # default is functionApp
       appName: 'fnapp-mbefnclient-SIT-Client-dev'
       package: $(System.ArtifactsDirectory)/**/*.zip
       #Uncomment the next lines to deploy to a deployment slot
@@ -50,7 +50,7 @@ steps:
   - task: AzureFunctionApp@1 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
-      appType: functionAppLinux # default is functionApp
+      appType: functionApp # default is functionApp
       appName: 'fnapp-mbefnclient-PreProd-Client-dev'
       package: $(System.ArtifactsDirectory)/**/*.zip
       #Uncomment the next lines to deploy to a deployment slot
@@ -61,7 +61,7 @@ steps:
   - task: AzureFunctionApp@1 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
-      appType: functionAppLinux # default is functionApp
+      appType: functionApp # default is functionApp
       appName: 'fnapp-mbefnclient-Prod-Client-dev'
       package: $(System.ArtifactsDirectory)/**/*.zip
       #Uncomment the next lines to deploy to a deployment slot
