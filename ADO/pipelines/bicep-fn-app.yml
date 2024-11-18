@@ -10,7 +10,6 @@ parameters:
 
 variables:
 - template: ./global.yml
-c
 - name: templateFile
   value: '$(Build.SourcesDirectory)/bicep/main.bicep'
 - name: csmParametersFile

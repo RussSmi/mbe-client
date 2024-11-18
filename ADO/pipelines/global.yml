@@ -4,5 +4,5 @@ variables:
   vmImageName: 'ubuntu-latest'
   logicAppBuildPipelineLabel: package-fn-app
   logicAppProjectDirectoryName: fnAppSrc
-  pathToFnAppProjectDirectory: '$(System.DefaultWorkingDirectory)/fnapps'
-  fnappsResourceGroupName: 'rg-mbeclients-uks'
+  pathToFnAppProjectDirectory: '$(System.DefaultWorkingDirectory)'
+  fnappsResourceGroupName: 'rg-mbe-test-ks'
