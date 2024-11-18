@@ -6,19 +6,19 @@ param clientConfig = {
   clients: [
     {
       name: 'Dev-Client'
-      apiUrl: '123'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/DEV/'
     }
     {
       name: 'SIT-Client'
-      apiUrl: '456'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/SIT/'
     }
     {
       name: 'PreProd-Client'
-      apiUrl: '456'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/CFT2/'
     }
     {
       name: 'Prod-Client'
-      apiUrl: '456'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/PROD/'
     }
   ]
 }

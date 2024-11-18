@@ -8,3 +8,15 @@ Content-Type: application/json
   "lastName": "Wayne",
   "phone": "321-456-7890"
 }
+
+###
+post https://fnapp-mbefnclient-dev-client-dev.azurewebsites.net/api/client_function
+Content-Type: application/json
+
+{
+  "devices": "",
+  "firstName": "Peter",
+  "lastName": "Parker",
+  "phone": "321-456-7890"
+}
+
