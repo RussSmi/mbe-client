@@ -25,7 +25,7 @@ steps:
   inputs:
     deploymentScope: 'Resource Group'
     ConnectedServiceName: '${{ parameters.azureServiceConnection }}'
-    SubscriptionName: '$(subscription-name)'
+    SubscriptionName: '8af392db-423c-49d9-8c34-cdafbe702315'
     action: 'Create Or Update Resource Group'
     resourceGroupName: '$(fnappsResourceGroupName)' 
     location: '$(location)'

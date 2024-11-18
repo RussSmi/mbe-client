@@ -6,7 +6,7 @@ variables:
 trigger:
   branches:
     include: 
-      - main
+      #- main
   paths:
     exclude:
       - README.md
