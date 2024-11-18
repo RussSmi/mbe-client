@@ -3,16 +3,8 @@ variables:
   - template: ./global.yml
   - name: resourceGroupName
     value: 'rg-mbe-test-ks'
-trigger:
-  branches:
-    include: 
-      #- main
-  paths:
-    exclude:
-      - README.md
-      - ../../vscode/*
-      - ../../bicep/*
-      - ../../tests.http
+trigger: none
+
 steps:
   - task: ArchiveFiles@2
     inputs:
