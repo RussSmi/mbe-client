@@ -65,3 +65,11 @@ steps:
       resourceGroupName: '$(resourceGroupName)'
       deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'
+  - task: AzureFunctionApp@2 # Add this at the end of your file
+    inputs:
+      connectedServiceNameARM: 'rusmith-sandbox'
+      appType: 'functionApp'
+      appName: 'fnapp-mbefnclient-DR-Client-dev'
+      package: '$(System.ArtifactsDirectory)/**/*.zip'
+      deploymentMethod: 'zipDeploy'
+      #slotName: '<Slot name>
