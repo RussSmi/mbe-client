@@ -1,6 +1,6 @@
 name: package-fn-app
 variables:
-  - template: ./global.yml
+  - template: global.yml
   - name: resourceGroupName
     value: 'rg-mbe-test-ks'
 trigger: none
@@ -13,20 +13,17 @@ steps:
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
       replaceExistingArchive: true
+  
 
   - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
     artifact: '$(artifactName)'
 
   - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
-      azureSubscription: rusmith-sandbox
-      appType: functionApp # default is functionApp
+      connectedServiceNameARM: 'rusmith-sandbox'
+      appType: 'functionApp'
       appName: 'fnapp-mbefnclient-Dev-Client-dev'
-      package: $(System.ArtifactsDirectory)/**/*.zip
-      #Uncomment the next lines to deploy to a deployment slot
-      #Note that deployment slots is not supported for Linux Dynamic SKU
-      #deployToSlotOrASE: true
-      resourceGroupName: '$(resourceGroupName)'
+      package: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
       deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'  
   - task: AzureFunctionApp@2 # Add this at the end of your file
