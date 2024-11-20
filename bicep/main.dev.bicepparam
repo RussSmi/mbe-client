@@ -18,7 +18,11 @@ param clientConfig = {
     }
     {
       name: 'Prod-Client'
-      apiUrl: 'https://apim-aisv31-dev.azure-api.net/PROD/'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/Production'
+    }
+    {
+      name: 'DR-Client'
+      apiUrl: 'https://apim-aisv31-dev.azure-api.net/DREC/'
     }
   ]
 }

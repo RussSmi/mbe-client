@@ -14,9 +14,52 @@ post https://fnapp-mbefnclient-dev-client-dev.azurewebsites.net/api/client_funct
 Content-Type: application/json
 
 {
-  "devices": "",
-  "firstName": "Peter",
-  "lastName": "Parker",
-  "phone": "321-456-7890"
+    "Request Date": "2024-11-19T13:28:00Z",
+    "Source Environment": "Dev",
+    "Target Environment": "Dev",
+    "Output Filename": "FnDevDemo8.Results.json"
 }
 
+###
+post https://fnapp-mbefnclient-sit-client-dev.azurewebsites.net/api/client_function
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-19T13:28:00Z",
+    "Source Environment": "Sit",
+    "Target Environment": "Sit",
+    "Output Filename": "FnDemoSit2.Results.json"
+}
+
+###
+post https://fnapp-mbefnclient-PreProd-client-dev.azurewebsites.net/api/client_function
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-19T13:28:00Z",
+    "Source Environment": "PreProd",
+    "Target Environment": "PreProd",
+    "Output Filename": "FnDemoPreProd1.Results.json"
+}
+
+###
+post https://fnapp-mbefnclient-Prod-client-dev.azurewebsites.net/api/client_function
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-19T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "FnDemmoProd9.Results.json"
+}
+
+###
+post https://fnapp-mbefnclient-Prod-client-dev.azurewebsites.net/api/client_function
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-19T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "FnDemmoProd11.Results.json"
+}

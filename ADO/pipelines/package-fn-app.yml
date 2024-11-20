@@ -17,7 +17,7 @@ steps:
   - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
     artifact: '$(artifactName)'
 
-  - task: AzureFunctionApp@1 # Add this at the end of your file
+  - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
       appType: functionApp # default is functionApp
@@ -27,8 +27,9 @@ steps:
       #Note that deployment slots is not supported for Linux Dynamic SKU
       #deployToSlotOrASE: true
       resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'  
-  - task: AzureFunctionApp@1 # Add this at the end of your file
+  - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
       appType: functionApp # default is functionApp
@@ -38,8 +39,9 @@ steps:
       #Note that deployment slots is not supported for Linux Dynamic SKU
       #deployToSlotOrASE: true
       resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'
-  - task: AzureFunctionApp@1 # Add this at the end of your file
+  - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
       appType: functionApp # default is functionApp
@@ -49,8 +51,9 @@ steps:
       #Note that deployment slots is not supported for Linux Dynamic SKU
       #deployToSlotOrASE: true
       resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'
-  - task: AzureFunctionApp@1 # Add this at the end of your file
+  - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
       azureSubscription: rusmith-sandbox
       appType: functionApp # default is functionApp
@@ -60,4 +63,5 @@ steps:
       #Note that deployment slots is not supported for Linux Dynamic SKU
       #deployToSlotOrASE: true
       resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'
