@@ -33,7 +33,7 @@ steps:
       connectedServiceNameARM: 'rusmith-sandbox'
       appType: 'functionApp'
       appName: 'fnapp-mbefnclient-Dev-Client-dev'
-      package: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
+      package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
       deploymentMethod: 'zipDeploy'
       #slotName: '<Slot name>'  
   - task: AzureFunctionApp@2 # Add this at the end of your file
