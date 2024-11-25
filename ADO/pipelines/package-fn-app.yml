@@ -6,16 +6,27 @@ variables:
 trigger: none
 
 steps:
-  - task: ArchiveFiles@2
+  - script: |
+      dotnet restore
+      dotnet build --configuration Release
+  - task: DotNetCoreCLI@2
     inputs:
-      rootFolderOrFile: '$(Build.SourcesDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
-      replaceExistingArchive: true
-
-  - publish: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
-    artifact: '$(artifactName)'
+      command: publish
+      arguments: '--configuration Release --output publish_output'
+      projects: '*.csproj'
+      publishWebProjects: false
+      modifyOutputPath: false
+      zipAfterPublish: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
 
   - task: AzureFunctionApp@2 # Add this at the end of your file
     inputs:
