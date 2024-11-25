@@ -34,4 +34,48 @@ steps:
       appName: 'fnapp-mbefnclient-Dev-Client-dev'
       package: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
       deploymentMethod: 'zipDeploy'
+  - task: AzureFunctionApp@2 # Add this at the end of your file
+    inputs:
+      azureSubscription: rusmith-sandbox
+      appType: functionApp # default is functionApp
+      appName: 'fnapp-mbefnclient-SIT-Client-dev'
+      package: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      #Uncomment the next lines to deploy to a deployment slot
+      #Note that deployment slots is not supported for Linux Dynamic SKU
+      #deployToSlotOrASE: true
+      resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
+      #slotName: '<Slot name>'
+  - task: AzureFunctionApp@2 # Add this at the end of your file
+    inputs:
+      azureSubscription: rusmith-sandbox
+      appType: functionApp # default is functionApp
+      appName: 'fnapp-mbefnclient-PreProd-Client-dev'
+      package: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      #Uncomment the next lines to deploy to a deployment slot
+      #Note that deployment slots is not supported for Linux Dynamic SKU
+      #deployToSlotOrASE: true
+      resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
+      #slotName: '<Slot name>'
+  - task: AzureFunctionApp@2 # Add this at the end of your file
+    inputs:
+      azureSubscription: rusmith-sandbox
+      appType: functionApp # default is functionApp
+      appName: 'fnapp-mbefnclient-Prod-Client-dev'
+      package: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      #Uncomment the next lines to deploy to a deployment slot
+      #Note that deployment slots is not supported for Linux Dynamic SKU
+      #deployToSlotOrASE: true
+      resourceGroupName: '$(resourceGroupName)'
+      deploymentMethod: 'zipDeploy'
+      #slotName: '<Slot name>'
+  - task: AzureFunctionApp@2 # Add this at the end of your file
+    inputs:
+      connectedServiceNameARM: 'rusmith-sandbox'
+      appType: 'functionApp'
+      appName: 'fnapp-mbefnclient-DR-Client-dev'
+      package: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      deploymentMethod: 'zipDeploy'
+      #slotName: '<Slot name>
 
