@@ -50,7 +50,7 @@ Content-Type: application/json
     "Request Date": "2024-11-19T13:28:00Z",
     "Source Environment": "Prod",
     "Target Environment": "Prod",
-    "Output Filename": "FnDemmoProd9.Results.json"
+    "Output Filename": "FnDemmoProd11.Results.json"
 }
 
 ###
@@ -62,4 +62,70 @@ Content-Type: application/json
     "Source Environment": "Prod",
     "Target Environment": "Prod",
     "Output Filename": "FnDemmoProd11.Results.json"
+}
+
+###
+POST https://fnapp-mbeproxy-dev.azurewebsites.net/api/call_logic_app_prod
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "proxy1.prod.json"
+}
+
+###
+POST https://fnapp-mbeproxy-dev.azurewebsites.net/api/call_logic_app_drec?
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "proxy2.drec.json"
+}
+
+###
+POST http://localhost:7071/api/call_logic_app_prod
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "proxy11.prod.json"
+}
+
+###
+post http://localhost:7071/api/call_logic_app_drec
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "proxy1.drec.json"
+}
+
+###
+post https://apim-aisv31-dev.azure-api.net/fnapp-mbeproxy-prod
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Prod",
+    "Target Environment": "Prod",
+    "Output Filename": "api-proxy5.prod.json"
+}
+
+###
+post https://apim-aisv31-dev.azure-api.net/fnapp-mbeproxy-drec
+Content-Type: application/json
+
+{
+    "Request Date": "2024-11-25T13:28:00Z",
+    "Source Environment": "Drec",
+    "Target Environment": "Drec",
+    "Output Filename": "api-proxy1.drec.json"
 }

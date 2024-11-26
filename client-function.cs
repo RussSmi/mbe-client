@@ -27,7 +27,12 @@ namespace My.Demos
             var response = await client.PostAsync(apiUrl, new StringContent(await new StreamReader(req.Body).ReadToEndAsync()));
             var responseContent = await response.Content.ReadAsStringAsync();
 
-            return new OkObjectResult(responseContent);
+            return new ContentResult
+            {
+                StatusCode = (int)response.StatusCode,
+                Content = responseContent,
+                ContentType = "text/plain"
+            };
         }
     }
 }
